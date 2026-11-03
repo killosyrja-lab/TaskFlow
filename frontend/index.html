@@ -1,41 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TaskFlow | Task Manager</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>TaskFlow</h1>
-        <p>Manage your work. Stay productive.</p>
+    <header class="header">
+        <div class="header-content">
+            <h1>TaskFlow</h1>
+            <p>Manage your work. Stay productive.</p>
+        </div>
     </header>
 
     <main class="container">
 
+        <section class="welcome">
+            <h2>Welcome back!</h2>
+            <p>Organize your day and get things done.</p>
+        </section>
+
+        <!-- STATISTICS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>Total Tasks</span>
+                <h2 id="totalTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <span>Completed</span>
+                <h2 id="completedTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <span>Pending</span>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+
+        </section>
+
+        <!-- ADD TASK FORM -->
         <section class="task-form">
-            <h2>My Tasks</h2>
+
+            <h2>Create a New Task</h2>
 
             <form id="taskForm">
+
                 <input
                     type="text"
                     id="taskInput"
-                    placeholder="Enter a new task..."
+                    placeholder="What needs to be done?"
+                    maxlength="100"
                     required
                 >
-                <button type="submit">Add Task</button>
+
+                <select id="priorityInput">
+                    <option value="Low">Low Priority</option>
+                    <option value="Medium" selected>Medium Priority</option>
+                    <option value="High">High Priority</option>
+                </select>
+
+                <button type="submit">+ Add Task</button>
+
             </form>
+
         </section>
 
+        <!-- TASK LIST -->
         <section class="task-list">
-            <h2>Today's Tasks</h2>
+
+            <div class="list-header">
+
+                <h2>My Tasks</h2>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">
+                        All
+                    </button>
+
+                    <button class="filter-btn" data-filter="pending">
+                        Pending
+                    </button>
+
+                    <button class="filter-btn" data-filter="completed">
+                        Completed
+                    </button>
+                </div>
+
+            </div>
+
             <ul id="taskList"></ul>
+
+            <p id="emptyMessage" class="empty-message">
+                No tasks yet. Add your first task!
+            </p>
+
         </section>
 
     </main>
 
+    <footer>
+        <p>TaskFlow © 2026 | Stay productive.</p>
+    </footer>
+
     <script src="js/app.js"></script>
+
 </body>
 </html>
